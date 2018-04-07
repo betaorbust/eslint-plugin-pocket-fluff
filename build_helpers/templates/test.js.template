@@ -1,0 +1,42 @@
+/**
+ * @fileoverview {RULE_DESCRIPTION}
+ * @author 
+ * See LICENSE file in root directory for full license.
+ */
+'use strict';
+
+//------------------------------------------------------------------------------
+// Requires
+//------------------------------------------------------------------------------
+const rule = require('../../../lib').rules['{RULE_NAME}'];
+const errorString = rule.errorString;
+const RuleTester  = require('eslint').RuleTester;
+
+const parserOptions = {
+	ecmaVersion: 6
+	// ecmaFeatures: {
+	// 	jsx: true
+	// }
+};
+
+//------------------------------------------------------------------------------
+// Tests
+//------------------------------------------------------------------------------
+
+const ruleTester = new RuleTester();
+ruleTester.run('{RULE_NAME}', rule, {
+
+	valid: [{
+		code: '',
+		parserOptions
+	}],
+
+	invalid: [{
+		code: '',
+		errors: [{
+			message: errorString,
+			type: 'JSXSpreadAttribute'
+		}],
+		parserOptions
+	}]
+});

@@ -1,0 +1,32 @@
+'use strict';
+/**
+* @fileoverview {RULE_DESCRIPTION}
+* @author 
+* See LICENSE file in root directory for full license.
+*/
+
+//------------------------------------------------------------------------------
+// Rule Definition
+//------------------------------------------------------------------------------
+
+const errorString = 'THERE WAS AN ERROR. CHANGE ME!';
+
+module.exports = {
+	meta: {
+		docs: {
+			description: `{RULE_DESCRIPTION}`,
+			category: 'Best Practices',
+			recommended: true
+		},
+		schema: [] // no options
+	},
+	create: function(context) {
+		return {
+			ArrayExpression(node) {
+				context.report(node, errorString);
+			}
+		};
+	}
+};
+
+module.exports.errorMessage = errorString;
