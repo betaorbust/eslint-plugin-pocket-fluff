@@ -9,7 +9,6 @@
 // Requires
 //------------------------------------------------------------------------------
 const rule = require('../../../lib').rules['{RULE_NAME}'];
-const errorString = rule.errorString;
 const RuleTester  = require('eslint').RuleTester;
 
 const parserOptions = {
@@ -34,7 +33,7 @@ ruleTester.run('{RULE_NAME}', rule, {
 	invalid: [{
 		code: '',
 		errors: [{
-			message: errorString,
+			messageId: 'someError',
 			type: 'JSXSpreadAttribute'
 		}],
 		parserOptions

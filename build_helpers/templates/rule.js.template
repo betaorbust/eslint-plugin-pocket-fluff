@@ -9,8 +9,6 @@
 // Rule Definition
 //------------------------------------------------------------------------------
 
-const errorString = 'THERE WAS AN ERROR. CHANGE ME!';
-
 module.exports = {
 	meta: {
 		docs: {
@@ -18,15 +16,16 @@ module.exports = {
 			category: 'Best Practices',
 			recommended: true
 		},
+		messages: {
+            someError: 'Use messageId messages for easier testing!'
+        },
 		schema: [] // no options
 	},
 	create: function(context) {
 		return {
 			ArrayExpression(node) {
-				context.report(node, errorString);
+				context.report({ node, messageId: 'someError' });
 			}
 		};
 	}
 };
-
-module.exports.errorMessage = errorString;
