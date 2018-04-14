@@ -17,7 +17,7 @@
     "test": "mocha --reporter=progress tests/lib/rules/",
     "add": "node build_helpers/add.js",
     "prettier": "prettier --list-different \"**/*.{js,jsx}\"",
-    "prepush": "eslint . && prettier --list-different \"**/*.{js,jsx}\"",
+    "prepush": "node scripts/prepush.js",
     "fix": "eslint . --fix && prettier --write \"**/*.{js,jsx}\""
   },
   "husky": {
@@ -25,10 +25,10 @@
       "pre-push": "npm run prepush"
     }
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^8.2.2",
+    "chalk": "^2.3.2",
     "eslint": "^4.19.1",
     "husky": "^0.14.3",
     "mocha": "^5.0.5",
