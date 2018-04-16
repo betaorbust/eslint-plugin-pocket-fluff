@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-pocket-fluff",
-  "version": "2.3.4",
+  "version": "1.0.0",
   "description": "A collection of helpful eslint rules.",
   "keywords": [
     "eslint",
