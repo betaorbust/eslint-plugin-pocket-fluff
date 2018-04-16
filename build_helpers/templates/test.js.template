@@ -22,12 +22,11 @@ const parserOptions = {
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({ parserOptions });
 ruleTester.run('{RULE_NAME}', rule, {
 
 	valid: [{
-		code: '',
-		parserOptions
+		code: ''
 	}],
 
 	invalid: [{
@@ -35,7 +34,6 @@ ruleTester.run('{RULE_NAME}', rule, {
 		errors: [{
 			messageId: 'someError',
 			type: 'JSXSpreadAttribute'
-		}],
-		parserOptions
+		}]
 	}]
 });

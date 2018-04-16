@@ -22,7 +22,7 @@ const parserOptions = {
 // hope that no testing system has its clock in a bad state :(
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({ parserOptions });
 
 const lineComment = `// @deathdate {{DATE}} developer@example.com This should die soon.
 console.log('something');`;
@@ -40,35 +40,29 @@ const malformed = [
 ruleTester.run('no-dead-code', rule, {
     valid: [
         {
-            code: lineComment.replace('{{DATE}}', '1/1/3000'),
-            parserOptions
+            code: lineComment.replace('{{DATE}}', '1/1/3000')
         },
         {
-            code: blockComment.replace('{{DATE}}', '1/1/3000'),
-            parserOptions
+            code: blockComment.replace('{{DATE}}', '1/1/3000')
         }
     ],
 
     invalid: [
         {
             code: malformed[0],
-            errors: [{ messageId: 'malformedAnnotation' }],
-            parserOptions
+            errors: [{ messageId: 'malformedAnnotation' }]
         },
         {
             code: malformed[1],
-            errors: [{ messageId: 'malformedAnnotation' }],
-            parserOptions
+            errors: [{ messageId: 'malformedAnnotation' }]
         },
         {
             code: lineComment.replace('{{DATE}}', '1/1/1969'),
-            errors: [{ messageId: 'deadCode' }],
-            parserOptions
+            errors: [{ messageId: 'deadCode' }]
         },
         {
             code: blockComment.replace('{{DATE}}', '1/1/1969'),
-            errors: [{ messageId: 'deadCode' }],
-            parserOptions
+            errors: [{ messageId: 'deadCode' }]
         }
     ]
 });

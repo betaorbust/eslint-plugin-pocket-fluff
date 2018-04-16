@@ -25,13 +25,12 @@ const parserOptions = {
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({ parserOptions });
 ruleTester.run('no-jsx-spread', rule, {
     valid: [
         {
             code:
-                'React.createClass({render(){ return <Bar prop1={ this.props.prop1 } prop2={ this.props.prop2 } /> } });',
-            parserOptions
+                'React.createClass({render(){ return <Bar prop1={ this.props.prop1 } prop2={ this.props.prop2 } /> } });'
         }
     ],
 
@@ -43,8 +42,7 @@ ruleTester.run('no-jsx-spread', rule, {
                     message: errorString,
                     type: 'JSXSpreadAttribute'
                 }
-            ],
-            parserOptions
+            ]
         }
     ]
 });
