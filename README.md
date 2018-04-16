@@ -37,7 +37,7 @@ Then configure the rules you want to use under the rules section.
 {
     "rules": {
         "pocket-fluff/no-jsx-spread": 2,
-        "pocket-fluff/no-stubs": 2
+        "pocket-fluff/no-dead-code": 2
     }
 }
 ```
