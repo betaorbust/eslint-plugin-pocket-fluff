@@ -64,10 +64,26 @@ b.b = 0;
 ```
 
 ## Options
-This rule takes one option, which is `constNameMatch`. This defaults to
-`^[A-Z0-9_]+$` which matches `ALL_CAPS_NUMB3RS_AND_UNDERSCORES` as the format
-for constant variables. Name checking can be turned off by setting
-`constNameMatch` to `false`.
+This rule takes one option, which is `constNameMatch`. 
+
+`constNameMatch` defaults to `^[A-Z0-9_]+$`, matching variables like 
+`ALL_CAPS_NUMB3RS_AND_UNDERSCORES` as constant-named variables. 
+
+Name checking can be turned off by setting `constNameMatch` to `false`.
+
+For example, if you were only matching against variables that start with 
+`CONST_`, your .eslintrc file might look like this:
+```json
+{
+    "plugins": [
+        "pocket-fluff"
+    ],
+    "rules": {
+        "pocket-fluff/no-jsx-spread": ["error", { "constNameMatch": "^CONST_" }]
+    }
+}
+
+```
 
 ## When not to use it
 When you want to be able to re-assign const values? Up to you...

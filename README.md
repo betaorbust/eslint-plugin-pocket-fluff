@@ -31,13 +31,13 @@ Add `pocket-fluff` to the plugins section of your `.eslintrc` configuration file
 ```
 
 
-Then configure the rules you want to use under the rules section.
+Then configure the rules you want to use under the rules section in your .eslintrc file.
 
 ```json
 {
     "rules": {
-        "pocket-fluff/no-jsx-spread": 2,
-        "pocket-fluff/no-dead-code": 2
+        "pocket-fluff/no-jsx-spread": "error",
+        "pocket-fluff/no-dead-code": "error"
     }
 }
 ```
