@@ -50,3 +50,6 @@ Disallow the use of the JSX spread for perf and DX reasons. [README](docs/rules/
 
 ### no-dead-code
 Disallow code past its marked @deathdate. [README](docs/rules/no-dead-code.md)
+
+### no-reassigned-consts
+Disallow Reassignments of consts and Const-named variables. [README](docs/rules/no-reassigned-consts.md)
