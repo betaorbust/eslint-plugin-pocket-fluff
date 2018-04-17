@@ -1,6 +1,12 @@
 # eslint-plugin-pocket-fluff
+[![Npm Version](https://img.shields.io/npm/v/eslint-plugin-pocket-fluff.svg)](https://www.npmjs.com/package/eslint-plugin-pocket-fluff)
+[![Node version requirements](https://img.shields.io/node/v/eslint-plugin-pocket-fluff.svg)](https://github.com/betaorbust/eslint-plugin-pocket-fluff/blob/master/package.json)
+[![Travis branch](https://img.shields.io/travis/betaorbust/eslint-plugin-pocket-fluff/master.svg)](https://travis-ci.org/betaorbust/eslint-plugin-pocket-fluff)
+[![Dependencies up to date](https://david-dm.org/betaorbust/eslint-plugin-pocket-fluff.svg)](https://david-dm.org/betaorbust/eslint-plugin-pocket-fluff)
+[![Dev dependencies up to date](https://david-dm.org/betaorbust/eslint-plugin-pocket-fluff/dev-status.svg)](https://david-dm.org/betaorbust/eslint-plugin-pocket-fluff?type=dev)
 
 A collection of eslint rules.
+
 
 ## Installation
 
