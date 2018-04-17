@@ -1,4 +1,6 @@
 # eslint-plugin-pocket-fluff
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/betaorbust/eslint-plugin-pocket-fluff.svg)](https://greenkeeper.io/)
 [![Npm Version](https://img.shields.io/npm/v/eslint-plugin-pocket-fluff.svg)](https://www.npmjs.com/package/eslint-plugin-pocket-fluff)
 [![Node version requirements](https://img.shields.io/node/v/eslint-plugin-pocket-fluff.svg)](https://github.com/betaorbust/eslint-plugin-pocket-fluff/blob/master/package.json)
 [![Travis branch](https://img.shields.io/travis/betaorbust/eslint-plugin-pocket-fluff/master.svg)](https://travis-ci.org/betaorbust/eslint-plugin-pocket-fluff)
