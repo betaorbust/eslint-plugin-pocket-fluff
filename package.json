@@ -13,6 +13,7 @@
   "files": [
     "lib/"
   ],
+  "engines" : { "node" : ">=6" },
   "scripts": {
     "test": "mocha --reporter=progress tests/lib/rules/",
     "add": "node build_helpers/add.js",
