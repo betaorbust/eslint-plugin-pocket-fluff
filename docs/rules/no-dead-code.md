@@ -50,3 +50,20 @@ celebrate(); // @deathdate 7/5/2018 dev@example.com Remove after July 4th sale.
 celebrate();
 ```
 
+## Options
+The rule takes a single options object with the properties and default values shown:
+
+```js
+/* .eslintrc */
+{
+    "rules": {
+        "pocket-fluff/no-jsx-spread": [
+            "error", 
+            {
+                "currentEpochTimeMS": Date.now(), // For testing or decoupling from system time. 
+                "daysBeforeDeathToReport": 0      // For warning/email pass X days before death.
+            }
+        ],
+    }
+}
+```
