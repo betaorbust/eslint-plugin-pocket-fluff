@@ -1,5 +1,5 @@
 /**
- * @fileoverview Disallow code past its marked @deathdate.
+ * @fileoverview Disallow code past its marked @replaceby.
  * @author
  * See LICENSE file in root directory for full license.
  */
@@ -24,30 +24,31 @@ const parserOptions = {
 
 const ruleTester = new RuleTester({ parserOptions });
 
-const lineComment = `// @deathdate 1/1/2018 developer@example.com This should die soon.
+const lineComment = `// @replaceby 1/1/2018 developer@example.com This should die soon.
 console.log('something');`;
 
 const blockComment = `/*
- *  @deathdate 1/1/2018 developer@example.com This should die soon.
+ *  @replaceby 1/1/2018 developer@example.com This should die soon.
  */
 console.log('something else');`;
 
 const malformed = [
-    '// @deathdate not-a-date developer@example.com',
-    '// @deathdate 1/2/3018 @twitter'
+    '// @replaceby not-a-date developer@example.com',
+    '// @replaceby 1/2/3018 @twitter'
 ];
+
+const alternateAnnotation = `// @somethingElse 1/1/2018 dev@example.com
+console.log('something');`;
 
 // A Default set of options so we're not relying on Date.now in tests.
 const successOptions = [
     {
-        currentEpochTimeMS: new Date('12/31/2017').getTime(),
-        daysBeforeDeathToReport: 0
+        currentEpochTimeMS: new Date('12/31/2017').getTime()
     }
 ];
 const failureOptions = [
     {
-        currentEpochTimeMS: new Date('1/2/2018').getTime(),
-        daysBeforeDeathToReport: 0
+        currentEpochTimeMS: new Date('1/2/2018').getTime()
     }
 ];
 
@@ -60,6 +61,11 @@ ruleTester.run('no-dead-code', rule, {
         {
             code: blockComment,
             options: successOptions
+        },
+        {
+            // Test if alternative annotations work.
+            code: alternateAnnotation,
+            options: [Object.assign({}, successOptions[0], { annotation: '@somethingElse' })]
         }
     ],
 
@@ -85,13 +91,20 @@ ruleTester.run('no-dead-code', rule, {
             errors: [{ messageId: 'deadCode' }]
         },
         {
+            // Failure case for moving current epoch time and daysBeforeDeath around.
             code: lineComment,
             options: [
                 {
                     currentEpochTimeMS: new Date('12/20/2017').getTime(),
-                    daysBeforeDeathToReport: 13
+                    daysBeforeToReport: 13
                 }
             ],
+            errors: [{ messageId: 'deadCode' }]
+        },
+        {
+            // Check failure case on alt annotations.
+            code: alternateAnnotation,
+            options: [Object.assign({}, failureOptions[0], { annotation: '@somethingElse' })],
             errors: [{ messageId: 'deadCode' }]
         }
     ]
