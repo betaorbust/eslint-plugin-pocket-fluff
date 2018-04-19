@@ -5,7 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.2.0]  - Apr 19 2018
+## [1.2.2] - Apr 19 2018
+## Fixed
+- Fixed a no-dead-code bug where the email address was not correctly reported. 
+## [1.2.1]  - Apr 19 2018
 OMG typing...
 ## Fixed
 - Fixed a bug where `no-dead-code` was matching on `@replaceby` instead of `@removeby`
