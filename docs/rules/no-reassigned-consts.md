@@ -1,7 +1,15 @@
 Disallow Reassignments of consts and const-named variables.  (no-reassigned-consts)
 ===================================================================================
 
-## Context
+Reassigning constant-like variables is a constant source of bugs.
+
+- [Rule details](#rule-details)
+- [Patterns considered warnings/errors](#patterns-considered-warningserrors)
+- [Patterns not considered warnings/errors](#patterns-not-considered-warningserrors)
+- [Installation](#installation)
+- [Options](#options)
+- [When not to use it](#when-not-to-use-it)
+## Rule details
 Reassigned constant values are usually an indication of a bug or a mis-labeled
 variable.
 This rule will disallow reassigning consts or variables named like consts
@@ -15,7 +23,7 @@ when configuring the rule at runtime.
 This rule is aimed at eliminating errors and silent defects in code by ensuring
 that constants are not assigned more then once.
 
-## The following patterns are considered warnings/errors
+## Patterns considered warnings/errors
 ```js
 const a = 'Fry';
 a = 'Leela';
@@ -50,7 +58,7 @@ var AN_OBJECT = {};
 AN_OBJECT.aProp = 'Nibbler';
 ```
 
-## The following patterns are not warnings
+## Patterns not considered warnings/errors
 ```js
 const a;
 ```
@@ -61,6 +69,25 @@ b.a = 'a';
 delete b.a;
 b.b = 0;
 ++b.b;
+```
+
+## Installation
+Install the pocket-fluff eslint plugin in your project.
+```bash
+# NPM
+npm install eslint-plugin-pocket-fluff --dev
+
+# Yarn
+yarn add eslint-plugin-pocket-fluff --dev
+```
+Enable the plugin and the rule in your .eslintrc ([or other config](https://eslint.org/docs/user-guide/configuring)) file.
+```json
+{
+    "plugins": ["pocket-fluff"],
+    "rules": {
+        "pocket-fluff/no-reassigned-consts": "error"
+    }
+}
 ```
 
 ## Options

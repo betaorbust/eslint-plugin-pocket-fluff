@@ -3,8 +3,13 @@ Disallow code past its marked @deathdate.  (no-dead-code)
 
 _"There is nothing more permanent than a temporary fix."_
 
+- [Rule details](#rule-details)
+- [Patterns considered warnings/errors](#patterns-considered-warningserrors)
+- [Patterns not considered warnings/errors](#patterns-not-considered-warningserrors)
+- [Installation](#installation)
+- [Options](#options)
 
-## Context
+## Rule details
 We've all been there: there's a fix coming in soon, but it's currently a blocker, and there's just a _little_ hack needed today, which you can fix up later. 
 
 What about that PR that exposed some needed maintenance tasks, but you didn't want to junk up/confuse the diffs, so you said that work would happen "... in a future pull request."
@@ -21,7 +26,7 @@ Whatever it is, slap a @deathdate annotation on it to make sure you get reminded
 // @deathdate 12/21/2018 dev@example.com Remove after snow.
 ```
 
-## The following patterns are considered warnings/errors
+## Patterns considered warnings/errors
 _**Assuming the current date is 8/1/2018.**_
 ```js
 celebrate(); // @deathdate 7/5/2018 dev@example.com Remove after July 4th sale.
@@ -38,7 +43,7 @@ celebrate();
 celebrate(); // @deathdate a/b/cc @example.com Bad format :(
 ```
 
-## The following patterns are not warnings
+## Patterns not considered warnings/errors
 _**Assuming the current date is 12/20/2017.**_
 ```js
 celebrate(); // @deathdate 7/5/2018 dev@example.com Remove after July 4th sale.
@@ -50,11 +55,29 @@ celebrate(); // @deathdate 7/5/2018 dev@example.com Remove after July 4th sale.
 celebrate();
 ```
 
+## Installation
+Install the pocket-fluff eslint plugin in your project.
+```bash
+# NPM
+npm install eslint-plugin-pocket-fluff --dev
+
+# Yarn
+yarn add eslint-plugin-pocket-fluff --dev
+```
+Enable the plugin and the rule in your .eslintrc ([or other config](https://eslint.org/docs/user-guide/configuring)) file.
+```json
+{
+    "plugins": ["pocket-fluff"],
+    "rules": {
+        "pocket-fluff/no-dead-code": "error"
+    }
+}
+```
+
 ## Options
-The rule takes a single options object with the properties and default values shown:
+The rule takes a single, optional, options object with the properties and default values shown:
 
 ```js
-/* .eslintrc */
 {
     "rules": {
         "pocket-fluff/no-jsx-spread": [

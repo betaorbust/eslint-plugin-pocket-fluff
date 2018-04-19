@@ -48,11 +48,10 @@ Then configure the rules you want to use under the rules section in your .eslint
 }
 ```
 
-## Supported Rules
+## Current Rules
 
 ### no-jsx-spread
 Disallow the use of the JSX spread for perf and DX reasons. [README](docs/rules/no-jsx-spread.md)
-
 
 ### no-dead-code
 Disallow code past its marked @deathdate. [README](docs/rules/no-dead-code.md)
