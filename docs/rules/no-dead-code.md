@@ -1,4 +1,4 @@
-Disallow code past its marked @replaceby.  (no-dead-code)
+Disallow code past its marked @removeby.  (no-dead-code)
 =====================================================
 
 _"There is nothing more permanent than a temporary fix."_
@@ -19,41 +19,41 @@ What about that PR that exposed some needed maintenance tasks, but you didn't wa
 
 With 100% good intentions, there's still a pretty good chance your codebase has that _little_ hack, and that second PR just hasn't made it yet.
 
-The @replaceby annotation allows you to leave a toolable and human-readable task for a later date. Like a TODO comment that reminds you it exists without you having to dig it back out.
+The @removeby annotation allows you to leave a toolable and human-readable task for a later date. Like a TODO comment that reminds you it exists without you having to dig it back out.
 
 It might be a fix that needs to happen once some other code has been merged in, it might be a deprecated API that's scheduled to go away, or maybe it's something to fix right after this next sprint.
 
-Whatever it is, slap a @replaceby annotation on it to make sure you get reminded when it's time is up.
+Whatever it is, slap a @removeby annotation on it to make sure you get reminded when it's time is up.
 
 ```js
-// @replaceby 12/21/2018 dev@example.com Remove after snow.
+// @removeby 12/21/2018 dev@example.com Remove after snow.
 ```
 
 ## Patterns considered warnings/errors
 _**Assuming the current date is 8/1/2018.**_
 ```js
-celebrate(); // @replaceby 7/5/2018 dev@example.com Remove after July 4th sale.
+celebrate(); // @removeby 7/5/2018 dev@example.com Remove after July 4th sale.
 ```
 ```js
 /*
- * @replaceby 7/5/2018 dev@example.com Remove after 4th of July sale. 
+ * @removeby 7/5/2018 dev@example.com Remove after 4th of July sale. 
  */
 celebrate();
 ```
 
 ```js
 // Will error because of malformed date and email.
-celebrate(); // @replaceby a/b/cc @example.com Bad format :(
+celebrate(); // @removeby a/b/cc @example.com Bad format :(
 ```
 
 ## Patterns not considered warnings/errors
 _**Assuming the current date is 12/20/2017.**_
 ```js
-celebrate(); // @replaceby 7/5/2018 dev@example.com Remove after July 4th sale.
+celebrate(); // @removeby 7/5/2018 dev@example.com Remove after July 4th sale.
 ```
 ```js
 /*
- * @replaceby 7/5/2018 dev@example.com Remove after 4th of July sale. 
+ * @removeby 7/5/2018 dev@example.com Remove after 4th of July sale. 
  */
 celebrate();
 ```

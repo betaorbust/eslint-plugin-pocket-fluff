@@ -1,5 +1,5 @@
 /**
- * @fileoverview Disallow code past its marked @replaceby.
+ * @fileoverview Disallow code past its marked @removeby.
  * @author
  * See LICENSE file in root directory for full license.
  */
@@ -24,17 +24,17 @@ const parserOptions = {
 
 const ruleTester = new RuleTester({ parserOptions });
 
-const lineComment = `// @replaceby 1/1/2018 developer@example.com This should die soon.
+const lineComment = `// @removeby 1/1/2018 developer@example.com This should die soon.
 console.log('something');`;
 
 const blockComment = `/*
- *  @replaceby 1/1/2018 developer@example.com This should die soon.
+ *  @removeby 1/1/2018 developer@example.com This should die soon.
  */
 console.log('something else');`;
 
 const malformed = [
-    '// @replaceby not-a-date developer@example.com',
-    '// @replaceby 1/2/3018 @twitter'
+    '// @removeby not-a-date developer@example.com',
+    '// @removeby 1/2/3018 @twitter'
 ];
 
 const alternateAnnotation = `// @somethingElse 1/1/2018 dev@example.com

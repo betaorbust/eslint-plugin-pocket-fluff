@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.2.0]  - Apr 19 2018
+OMG typing...
+## Fixed
+- Fixed a bug where `no-dead-code` was matching on `@replaceby` instead of `@removeby`
+## [1.2.0]  - Apr 19 2018
 ## Added
 - CHANGELOG.md
 - `no-dead-code` rule now accepts `annotation` option to allow renaming the triggering annotation.

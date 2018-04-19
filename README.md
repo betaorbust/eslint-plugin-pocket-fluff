@@ -54,7 +54,7 @@ Then configure the rules you want to use under the rules section in your .eslint
 Disallow the use of the JSX spread for perf and DX reasons. [README](docs/rules/no-jsx-spread.md)
 
 ### no-dead-code
-Disallow code past its marked @replaceby. [README](docs/rules/no-dead-code.md)
+Disallow code past its marked @removeby. [README](docs/rules/no-dead-code.md)
 
 ### no-reassigned-consts
 Disallow Reassignments of consts and Const-named variables. [README](docs/rules/no-reassigned-consts.md)
