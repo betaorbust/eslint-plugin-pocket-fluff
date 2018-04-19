@@ -9,6 +9,9 @@ _"There is nothing more permanent than a temporary fix."_
 - [Installation](#installation)
 - [Options](#options)
 
+
+<img src="https://i.imgur.com/12nzAi5.png" width="500">
+
 ## Rule details
 We've all been there: there's a fix coming in soon, but it's currently a blocker, and there's just a _little_ hack needed today, which you can fix up later. 
 
