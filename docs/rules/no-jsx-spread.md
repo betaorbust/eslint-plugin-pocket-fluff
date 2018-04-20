@@ -49,7 +49,7 @@ Enable the plugin and the rule in your .eslintrc ([or other config](https://esli
 {
     "plugins": ["pocket-fluff"],
     "rules": {
-        "pocket-fluff/no-dead-code": "error"
+        "pocket-fluff/no-jsx-spread": "error"
     }
 }
 ```
