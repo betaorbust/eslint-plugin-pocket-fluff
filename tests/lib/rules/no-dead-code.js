@@ -24,18 +24,15 @@ const parserOptions = {
 
 const ruleTester = new RuleTester({ parserOptions });
 
-const lineComment = `// @removeby 1/1/2018 developer@example.com This should die soon.
+const lineComment = `// @removeby 1/1/2018 dev@example.com This should die soon.
 console.log('something');`;
 
 const blockComment = `/*
- *  @removeby 1/1/2018 developer@example.com This should die soon.
+ *  @removeby 1/1/2018 dev@example.com This should die soon.
  */
 console.log('something else');`;
 
-const malformed = [
-    '// @removeby not-a-date developer@example.com',
-    '// @removeby 1/2/3018 @twitter'
-];
+const malformed = ['// @removeby not-a-date dev@example.com', '// @removeby 1/2/3018 @twitter'];
 
 const alternateAnnotation = `// @somethingElse 1/1/2018 dev@example.com
 console.log('something');`;
@@ -51,6 +48,12 @@ const failureOptions = [
         currentEpochTimeMS: new Date('1/2/2018').getTime()
     }
 ];
+
+// Until https://github.com/eslint/eslint/issues/10244 is closed or 5x comes out
+// we have to also provide message data to messageId-based errors.
+const messageData = {
+    user: 'dev@example.com'
+};
 
 ruleTester.run('no-dead-code', rule, {
     valid: [
@@ -83,12 +86,12 @@ ruleTester.run('no-dead-code', rule, {
         {
             code: lineComment,
             options: failureOptions,
-            errors: [{ messageId: 'deadCode' }]
+            errors: [{ messageId: 'deadCode', data: messageData }]
         },
         {
             code: blockComment,
             options: failureOptions,
-            errors: [{ messageId: 'deadCode' }]
+            errors: [{ messageId: 'deadCode', data: messageData }]
         },
         {
             // Failure case for moving current epoch time and daysBeforeDeath around.
@@ -99,13 +102,13 @@ ruleTester.run('no-dead-code', rule, {
                     daysBeforeToReport: 13
                 }
             ],
-            errors: [{ messageId: 'deadCode' }]
+            errors: [{ messageId: 'deadCode', data: messageData }]
         },
         {
             // Check failure case on alt annotations.
             code: alternateAnnotation,
             options: [Object.assign({}, failureOptions[0], { annotation: '@somethingElse' })],
-            errors: [{ messageId: 'deadCode' }]
+            errors: [{ messageId: 'deadCode', data: messageData }]
         }
     ]
 });
