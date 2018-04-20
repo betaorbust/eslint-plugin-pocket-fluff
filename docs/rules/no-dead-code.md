@@ -10,7 +10,7 @@ _"There is nothing more permanent than a temporary fix."_
 - [Options](#options)
 
 
-<img src="https://i.imgur.com/12nzAi5.png" width="500">
+![Screenshot of JS code with annotation "@removeby 4/17/2018 dev@example.com" and ESLint error reading "Code is past its expiration date. Please contact dev@example.com"](https://i.imgur.com/hUUI5CO.png)
 
 ## Rule details
 We've all been there: there's a fix coming in soon, but it's currently a blocker, and there's just a _little_ hack needed today, which you can fix up later. 
