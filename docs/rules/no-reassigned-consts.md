@@ -1,18 +1,23 @@
-Disallow Reassignments of consts and const-named variables.  (no-reassigned-consts)
+Disallow Reassignments of const-named variables.  (no-reassigned-consts)
 ===================================================================================
 
 Reassigning constant-like variables is a constant source of bugs.
 
-- [Rule details](#rule-details)
-- [Patterns considered warnings/errors](#patterns-considered-warningserrors)
-- [Patterns not considered warnings/errors](#patterns-not-considered-warningserrors)
-- [Installation](#installation)
-- [Options](#options)
-- [When not to use it](#when-not-to-use-it)
+- [Disallow Reassignments of const-named variables. (no-reassigned-consts)](#disallow-reassignments-of-const-named-variables-no-reassigned-consts)
+    - [Rule details](#rule-details)
+    - [Patterns considered warnings/errors](#patterns-considered-warningserrors)
+    - [Patterns not considered warnings/errors](#patterns-not-considered-warningserrors)
+    - [Installation](#installation)
+    - [Options](#options)
+    - [When not to use it](#when-not-to-use-it)
 ## Rule details
+*THIS RULE WAS UPDATED IN 2.x.x TO NOT CHECK CONST VARIABLES (via the ES2015 `const` 
+syntax) because ESLint's built-in [no-const-assign](https://eslint.org/docs/rules/no-const-assign)
+will handle this now. This rule now only focuses on const-named variables.*
+
 Reassigned constant values are usually an indication of a bug or a mis-labeled
 variable.
-This rule will disallow reassigning consts or variables named like consts
+This rule will disallow reassigning variables named like consts
 (default: ALL_CAPS_SNAKE_CASE)
 
 The rule is based on a similar rule by colonyamerican/eslint-plugin-cah but
@@ -24,51 +29,22 @@ This rule is aimed at eliminating errors and silent defects in code by ensuring
 that constants are not assigned more then once.
 
 ## Patterns considered warnings/errors
-```js
-const a = 'Fry';
-a = 'Leela';
-```
-
-```js
-const a = 'a';
-a = 'b';
-```
-
-```js
-const b = 0;
-++b;
-```
-
-```js
-const c = {};
-delete c;
-```
-
-All of the previous rules hold true when applied to a variable with a name that
-matches the `constNameMatch` regex option.
 
 ```js
 var THIS_IS_A_CONSTANT = 'Amy';
 THIS_IS_A_CONSTANT = 'Zoidberg';
 ```
 
-This will not:
+
+## Patterns not considered warnings/errors
 ```js
 var AN_OBJECT = {};
 AN_OBJECT.aProp = 'Nibbler';
 ```
 
-## Patterns not considered warnings/errors
 ```js
-const a;
-```
-
-```js
-const b = {};
-b.a = 'a';
-delete b.a;
-b.b = 0;
-++b.b;
+var SOMETHING = 'something... dark side.';
+console.log(SOMETHING);
 ```
 
 ## Installation
@@ -106,7 +82,7 @@ For example, if you were only matching against variables that start with
         "pocket-fluff"
     ],
     "rules": {
-        "pocket-fluff/no-jsx-spread": ["error", { "constNameMatch": "^CONST_" }]
+        "pocket-fluff/no-reassigned-consts": ["error", { "constNameMatch": "^CONST_" }]
     }
 }
 
