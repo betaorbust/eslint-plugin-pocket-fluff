@@ -83,7 +83,7 @@ The rule takes a single, optional, options object with the properties and defaul
 ```js
 {
     "rules": {
-        "pocket-fluff/no-jsx-spread": [
+        "pocket-fluff/no-dead-code": [
             "error", 
             {
                 "currentEpochTimeMS": Date.now(), // For testing or decoupling from system time. 
