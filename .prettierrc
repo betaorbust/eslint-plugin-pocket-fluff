@@ -1,7 +1,15 @@
 {
-    "printWidth": 100,
-    "singleQuote": true,
-    "parser": "flow",
-    "tabWidth": 4,
-    "arrowParens": "always"
+	"useTabs": true,
+	"singleQuote": true,
+	"proseWrap": "always",
+	"htmlWhitespaceSensitivity": "css",
+	"vueIndentScriptAndStyle": true,
+	"overrides": [
+		{
+			"files": "*.md",
+			"options": {
+				"proseWrap": "preserve"
+			}
+		}
+	]
 }

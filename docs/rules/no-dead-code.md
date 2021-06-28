@@ -1,5 +1,4 @@
-Disallow code past its marked @removeby.  (no-dead-code)
-=====================================================
+# Disallow code past its marked @removeby. (no-dead-code)
 
 _"There is nothing more permanent than a temporary fix."_
 
@@ -9,11 +8,11 @@ _"There is nothing more permanent than a temporary fix."_
 - [Installation](#installation)
 - [Options](#options)
 
-
 ![Screenshot of JS code with annotation "@removeby 4/17/2018 dev@example.com" and ESLint error reading "Code is past its expiration date. Please contact dev@example.com"](https://i.imgur.com/hUUI5CO.png)
 
 ## Rule details
-We've all been there: there's a fix coming in soon, but it's currently a blocker, and there's just a _little_ hack needed today, which you can fix up later. 
+
+We've all been there: there's a fix coming in soon, but it's currently a blocker, and there's just a _little_ hack needed today, which you can fix up later.
 
 What about that PR that exposed some needed maintenance tasks, but you didn't want to junk up/confuse the diffs, so you said that work would happen "... in a future pull request."
 
@@ -30,13 +29,16 @@ Whatever it is, slap a @removeby annotation on it to make sure you get reminded 
 ```
 
 ## Patterns considered warnings/errors
+
 _**Assuming the current date is 8/1/2018.**_
+
 ```js
 celebrate(); // @removeby 7/5/2018 dev@example.com Remove after July 4th sale.
 ```
+
 ```js
 /*
- * @removeby 7/5/2018 dev@example.com Remove after 4th of July sale. 
+ * @removeby 7/5/2018 dev@example.com Remove after 4th of July sale.
  */
 celebrate();
 ```
@@ -47,19 +49,24 @@ celebrate(); // @removeby a/b/cc @example.com Bad format :(
 ```
 
 ## Patterns not considered warnings/errors
+
 _**Assuming the current date is 12/20/2017.**_
+
 ```js
 celebrate(); // @removeby 7/5/2018 dev@example.com Remove after July 4th sale.
 ```
+
 ```js
 /*
- * @removeby 7/5/2018 dev@example.com Remove after 4th of July sale. 
+ * @removeby 7/5/2018 dev@example.com Remove after 4th of July sale.
  */
 celebrate();
 ```
 
 ## Installation
+
 Install the pocket-fluff eslint plugin in your project.
+
 ```bash
 # NPM
 npm install eslint-plugin-pocket-fluff --dev
@@ -67,26 +74,29 @@ npm install eslint-plugin-pocket-fluff --dev
 # Yarn
 yarn add eslint-plugin-pocket-fluff --dev
 ```
+
 Enable the plugin and the rule in your .eslintrc ([or other config](https://eslint.org/docs/user-guide/configuring)) file.
+
 ```json
 {
-    "plugins": ["pocket-fluff"],
-    "rules": {
-        "pocket-fluff/no-dead-code": "error"
-    }
+	"plugins": ["pocket-fluff"],
+	"rules": {
+		"pocket-fluff/no-dead-code": "error"
+	}
 }
 ```
 
 ## Options
+
 The rule takes a single, optional, options object with the properties and default values shown:
 
 ```js
 {
     "rules": {
         "pocket-fluff/no-dead-code": [
-            "error", 
+            "error",
             {
-                "currentEpochTimeMS": Date.now(), // For testing or decoupling from system time. 
+                "currentEpochTimeMS": Date.now(), // For testing or decoupling from system time.
                 "daysBeforeToReport": 0,          // For warning/email pass X days before removeby.
                 "annotation": '@removeby'         // For renaming the annotation. String form of regex match.
             }

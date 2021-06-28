@@ -1,7 +1,0 @@
-## Remove everything
-*
-**/*
-
-## Whitelist our rules.
-!lib/**/*
-!lib/index.js

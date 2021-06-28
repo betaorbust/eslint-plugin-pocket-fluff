@@ -4,4 +4,5 @@ package-lock.json
 .npmrc
 .yarnrc
 yarn-error.log
-
+.eslintcache
+coverage/

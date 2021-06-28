@@ -1,37 +1,67 @@
 {
-  "name": "eslint-plugin-pocket-fluff",
-  "version": "2.0.0",
-  "description": "A collection of helpful eslint rules.",
-  "keywords": [
-    "eslint",
-    "eslintplugin",
-    "eslint-plugin"
-  ],
-  "author": "Jacques Favreau (@betaorbust)",
-  "repository": "betaorbust/eslint-plugin-pocket-fluff",
-  "main": "lib/index.js",
-  "files": [
-    "lib/"
-  ],
-  "engines": {
-    "node": ">=12"
-  },
-  "scripts": {
-    "test": "mocha --reporter=progress tests/lib/rules/",
-    "add": "node build_helpers/add.js",
-    "prettier": "prettier --check .",
-    "prepush": "node scripts/prepush.js",
-    "fix": "eslint . --fix && prettier --write .",
-    "prepare": "husky install"
-  },
-  "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "chalk": "^4.1.1",
-    "eslint": "^7.29.0",
-    "husky": "^6.0.0",
-    "mocha": "^9.0.1",
-    "prettier": "^2.3.2",
-    "prompt": "^1.1.0"
-  },
-  "license": "MIT"
+	"name": "eslint-plugin-pocket-fluff",
+	"version": "2.0.0",
+	"description": "A collection of helpful eslint rules.",
+	"keywords": [
+		"eslint",
+		"eslintplugin",
+		"eslint-plugin"
+	],
+	"author": "Jacques Favreau (@betaorbust)",
+	"repository": "betaorbust/eslint-plugin-pocket-fluff",
+	"main": "lib/index.js",
+	"files": [
+		"lib/"
+	],
+	"engines": {
+		"node": ">=12"
+	},
+	"scripts": {
+		"test": "mocha --reporter=progress tests/lib/rules/",
+		"add": "node build_helpers/add.js",
+		"prettier": "prettier --check .",
+		"prepush": "node scripts/prepush.js",
+		"fix": "eslint . --fix && prettier --write .",
+		"prepare": "husky install",
+		"format:check": "prettier --loglevel log --check \"**/*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}\"",
+		"format": "prettier --loglevel warn --write \"**/*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}\"",
+		"lint": "eslint ./"
+	},
+	"devDependencies": {
+		"@betaorbust/eslint-config": "betaorbust/shared-eslint#semver:0.0.5",
+		"@commitlint/cli": ">=12",
+		"@commitlint/config-conventional": ">=12",
+		"babel-eslint": "^10.1.0",
+		"eslint": "^7.29.0",
+		"husky": "^6.0.0",
+		"lint-staged": ">=10",
+		"mocha": "^9.0.1",
+		"prettier": "^2.3.2",
+		"prompt": "^1.1.0",
+		"typescript": "^4.3.4"
+	},
+	"license": "MIT",
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,mjs}": "eslint --fix",
+		"*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}": "prettier --write"
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		],
+		"rules": {
+			"subject-case": [
+				2,
+				"always",
+				[
+					"sentence-case"
+				]
+			],
+			"subject-full-stop": [
+				2,
+				"always",
+				"."
+			]
+		}
+	}
 }
