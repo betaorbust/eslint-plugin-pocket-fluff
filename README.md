@@ -58,3 +58,6 @@ Disallow code past its marked @removeby. [README](docs/rules/no-dead-code.md)
 
 ### no-reassigned-consts
 Disallow Reassignments of consts and Const-named variables. [README](docs/rules/no-reassigned-consts.md)
+
+### no-react-scope-bound-assignment
+Disallow reassigning external variables from inside react components. [README](docs/rules/no-react-scope-bound-assignment.md)
