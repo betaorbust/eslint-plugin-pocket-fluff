@@ -28,7 +28,7 @@
 		"lint": "eslint ./"
 	},
 	"devDependencies": {
-		"@betaorbust/eslint-config": "betaorbust/shared-eslint#semver:0.0.5",
+		"@betaorbust/eslint-config": "^2.0.0",
 		"@commitlint/cli": ">=12",
 		"@commitlint/config-conventional": ">=12",
 		"babel-eslint": "^10.1.0",
