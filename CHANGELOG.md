@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - June 28 2021
+
+### BREAKING
+
+- Minimum node verison bumped to 10
+- Now developing off of ESLint 7
+
+### Features
+
+- Imported `no-react-scope-bound-assignment`
+
+### Chores
+
+- Updated all underlying dev libraries to @latest
+- Added Code of Conduct
+- Stricter linting
+- Updated formatting
+
 ## [2.0.0] - July 9 2018
 
 ### BREAKING
