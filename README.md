@@ -59,3 +59,7 @@ Disallow Reassignments of consts and Const-named variables. [README](docs/rules/
 ### no-react-scope-bound-assignment
 
 Disallow reassigning external variables from inside react components. [README](docs/rules/no-react-scope-bound-assignment.md)
+
+### base-ten-numeric-literals
+
+Disable octal, hex, and boolean numeric literals. [README](docs/rules/base-ten-numeric-literals.md)
