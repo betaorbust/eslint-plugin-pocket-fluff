@@ -8,8 +8,8 @@
 //------------------------------------------------------------------------------
 // Requires
 //------------------------------------------------------------------------------
+const { RuleTester } = require('eslint');
 const rule = require('../../../lib').rules['{RULE_NAME}'];
-const RuleTester  = require('eslint').RuleTester;
 
 const parserOptions = {
 	ecmaVersion: 6
